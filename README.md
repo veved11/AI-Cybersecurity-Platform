@@ -43,11 +43,12 @@ AI-powered cybersecurity monitoring platform built with FastAPI, PostgreSQL, Mac
 
 ![Alerts](alerts.jpg)
 
+
 ---
 
 ## Threat Analysis
 
-![Latest Analysis](latestanalysis.jpg)
+![Analysis](latestanalysis.jpg)
 
 ---
 
@@ -55,8 +56,16 @@ AI-powered cybersecurity monitoring platform built with FastAPI, PostgreSQL, Mac
 
 ![Statistics](statistics.jpg)
 
+
 ---
 
+
+## Log Upload
+
+![Upload](upload.jpg)
+
+
+---
 ## AI Threat Detection
 
 Supported Threat Types:
