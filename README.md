@@ -47,7 +47,7 @@ AI-powered cybersecurity monitoring platform built with FastAPI, PostgreSQL, Mac
 
 ## Threat Analysis
 
-![Analysis](analysis.jpg)
+![Latest Analysis](latestanalysis.jpg)
 
 ---
 
