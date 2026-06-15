@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cybersecurity Dashboard</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+<div class="d-flex">
+
+    <div class="sidebar">
+
+        <h3 class="mb-4">
+            AI Cybersecurity
+        </h3>
+
+        <a href="/">📊 Dashboard</a>
+        <a href="#users-table">
+    👥 Users
+</a>
+
+        <a href="#alerts-table">
+            🚨 Alerts
+        </a>
+
+        <a href="#analyses-table">
+            📈 Analytics
+        </a>
+
+        <a href="#logFile">
+            📁 Upload Logs
+        </a>
+
+        <a href="#threatChart">
+            📊 Reports
+        </a>
+<a href="/generate-report"
+   class="btn btn-danger mt-3"
+   target="_blank">
+
+   Generate Security Report PDF
+
+</a>
+        <button
+            class="btn btn-dark mt-4 w-100"
+            onclick="logout()"
+        >
+            Logout
+        </button>
+
+    </div>
+
+    <div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h1>
+        AI Cybersecurity Dashboard
+    </h1>
+
+
+</div>
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card dashboard-card text-center shadow">
+                <div class="card-body">
+                    <h5>Total Users</h5>
+                    <h2 id="users-count">0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card dashboard-card text-center shadow">
+                <div class="card-body">
+                    <h5>Total Analyses</h5>
+                    <h2 id="analyses-count">0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+           <div class="card dashboard-card text-center shadow">
+                <div class="card-body">
+                    <h5>Risk Score</h5>
+                    <h2 id="risk-score">0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card dashboard-card text-center shadow">
+                <div class="card-body">
+                    <h5>High Risk</h5>
+                    <h2 id="high-risk">0</h2>
+                </div>
+            </div>
+        </div>
+
+
+
+</div>
+<hr class="my-5">
+<h2 class="mt-5 mb-3">Users Management</h2>
+
+<div class="card shadow">
+    <div class="card-body">
+
+        <input
+    type="text"
+    id="userSearch"
+    class="form-control mb-3"
+    placeholder="Search users..."
+    onkeyup="loadUsers()"
+>
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="users-table">
+            </tbody>
+
+        </table>
+ </div>
+    </div>
+<h2 class="mb-3">Latest Alerts</h2>
+<input
+    type="text"
+    id="alertSearch"
+    class="form-control mb-3"
+    placeholder="Search alerts..."
+    onkeyup="loadAlerts()"
+>
+        <div class="mb-3">
+
+    <button
+        class="btn btn-secondary btn-sm"
+        onclick="filterRisk('all')"
+    >
+        All
+    </button>
+
+    <button
+        class="btn btn-danger btn-sm"
+        onclick="filterRisk('Critical')"
+    >
+        Critical
+    </button>
+
+    <button
+        class="btn btn-sm high-btn"
+        onclick="filterRisk('High')"
+    >
+        High
+    </button>
+
+    <button
+        class="btn btn-warning btn-sm"
+        onclick="filterRisk('Medium')"
+    >
+        Medium
+    </button>
+
+    <button
+        class="btn btn-success btn-sm"
+        onclick="filterRisk('Low')"
+    >
+        Low
+    </button>
+
+</div>
+<div class="card shadow">
+    <div class="card-body">
+
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Threat</th>
+                    <th>Risk</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="alerts-table">
+
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+<h2 class="mt-5 mb-3">Latest Analyses</h2>
+
+<div class="card shadow">
+    <div class="card-body">
+
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Risk</th>
+                    <th>Analysis</th>
+                </tr>
+            </thead>
+
+            <tbody id="analyses-table">
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+<h2 class="mt-5 mb-3">Upload Log File</h2>
+
+<div class="card shadow mb-4">
+    <div class="card-body">
+
+        <input
+            type="file"
+            id="logFile"
+            class="form-control mb-3"
+        >
+
+        <button
+            class="btn btn-primary"
+            onclick="uploadLog()"
+        >
+            Upload Log
+        </button>
+
+        <div id="upload-result" class="mt-3">
+
+        </div>
+
+    </div>
+</div>
+
+<h2 class="mt-5 mb-3">Threat Statistics</h2>
+
+<div class="card shadow">
+    <div class="card-body">
+
+        <canvas id="threatChart"></canvas>
+
+    </div>
+</div>
+</div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="../static/script.js"></script>
+
+</body>
+</html>

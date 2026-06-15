@@ -1,0 +1,104 @@
+body {
+    background-color: #f4f6f9;
+}
+
+.card {
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-weight: bold;
+}
+.high-risk {
+    color: orange;
+    font-weight: bold;
+}
+
+.critical-risk {
+    color: red;
+    font-weight: bold;
+}
+
+.medium-risk {
+    color: goldenrod;
+    font-weight: bold;
+}
+
+.low-risk {
+    color: green;
+    font-weight: bold;
+}
+body {
+    background-color: white;
+}
+body {
+    background-color: #f4f6f9;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h3 {
+    font-weight: 600;
+}
+.form-control {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+    background-color: #e9ecef;
+    border-color: #6c757d;
+    box-shadow: none;
+}
+.dashboard-card {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    border-radius: 15px;
+}
+.btn-dark {
+    background-color: #2d3748;
+    border-color: #2d3748;
+}
+
+.btn-dark:hover {
+    background-color: #1f2937;
+    border-color: #1f2937;
+}
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background-color: #2d3748;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.sidebar a:hover {
+    background-color: #4a5568;
+    border-radius: 8px;
+}
+.high-btn {
+    background-color: orange !important;
+    color:black !important;
+    border: none!important;
+}

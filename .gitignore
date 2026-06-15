@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+
+.idea/
+
+security_report.pdf
+
+*.pkl
